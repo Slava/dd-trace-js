@@ -42,9 +42,6 @@ node-core-base: &node-core-base
     - run:
         name: Benchmark
         command: yarn bench
-    - run:
-        name: External tests
-        command: yarn test:external
 
 node-plugin-base: &node-plugin-base
   docker:
@@ -81,6 +78,9 @@ node-plugin-base: &node-plugin-base
     - run:
         name: Memory leak tests
         command: yarn leak:plugins
+    - run:
+        name: External tests
+        command: yarn test:external
 
 jobs:
   # Linting
