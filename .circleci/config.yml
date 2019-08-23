@@ -80,11 +80,7 @@ node-plugin-base: &node-plugin-base
     - run:
         name: Memory leak tests
         command: yarn leak:plugins
-    - run: |
-        if [ -z "${DD_TEARDOWN_CONTAINER}" ]
-        then
-          docker ps
-        fi
+    - run: docker ps
     - run:
         name: External tests
         command: yarn test:external
