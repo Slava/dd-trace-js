@@ -50,8 +50,6 @@ node-plugin-base: &node-plugin-base
   resource_class: small
   steps:
     - checkout
-    - setup_remote_docker:
-        docker_layer_caching: true
     - run:
         name: Versions
         command: yarn versions
@@ -80,7 +78,6 @@ node-plugin-base: &node-plugin-base
     - run:
         name: Memory leak tests
         command: yarn leak:plugins
-    - run: docker ps
     - run:
         name: External tests
         command: yarn test:external
@@ -401,7 +398,6 @@ jobs:
         environment:
           - SERVICES=redis
           - PLUGINS=redis|ioredis
-          - DD_TEARDOWN_CONTAINER=true
       - image: redis:4.0-alpine
 
   node-restify:
