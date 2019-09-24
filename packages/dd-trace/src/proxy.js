@@ -41,7 +41,7 @@ class Tracer extends BaseTracer {
             analyticsSampler.enable()
           }
 
-          //this._tracer = new DatadogTracer(config)
+          this._tracer = new DatadogTracer(config)
           //this._instrumenter.enable()
           //this._instrumenter.patch(config)
         }
